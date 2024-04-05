@@ -8,5 +8,3 @@ RUN /usr/local/bin/install-plugins.sh \
     workflow-aggregator \
     docker-workflow \
     blueocean \
-    
-CMD ["java", "-jar", "/usr/share/jenkins/jenkins.war"]
