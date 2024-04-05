@@ -4,14 +4,15 @@ FROM jenkins/jenkins:lts
 # Копируем скрипт установки плагинов Jenkins в директорию /usr/local/bin/
 COPY install-plugins.sh /usr/local/bin/
 
+# Задаем права доступа для скрипта
+RUN chmod +x /usr/local/bin/install-plugins.sh
+
 # Устанавливаем необходимые плагины Jenkins
-RUN chmod +x /usr/local/bin/install-plugins.sh && \
-    /usr/local/bin/install-plugins.sh \
+RUN /usr/local/bin/install-plugins.sh \
     git \
     workflow-aggregator \
     docker-workflow \
     blueocean \
-    # Другие плагины, необходимые для вашего проекта
 
 # Опционально: копируем конфигурационные файлы Jenkins (если требуется)
 # COPY <локальный_файл> /var/jenkins_home/
